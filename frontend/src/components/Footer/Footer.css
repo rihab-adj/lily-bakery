@@ -1,0 +1,80 @@
+.footer {
+  width: 100%;
+  background: #cfe3d8;
+  color: #4a3a3d;
+  padding-top: 6vh;
+}
+
+.footer-inner {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-brand p { max-width: 30ch; opacity: 0.85; }
+
+.logo-light {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.footer h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #b25c68;
+  margin: 0 0 10px;
+}
+
+.footer a { color: #4a3a3d; text-decoration: none; }
+.footer a:hover { color: #c97480; text-decoration: underline; }
+
+.footer-links,
+.footer-contact,
+.footer-hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li { margin-bottom: 7px; }
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.footer-contact svg { color: #b25c68; flex-shrink: 0; }
+.hours-title { margin-top: 18px !important; }
+
+.footer-hours li {
+  display: flex;
+  justify-content: space-between;
+  max-width: 220px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.78rem;
+  opacity: 0.7;
+  padding: 16px 0;
+  border-top: 1px solid rgba(74, 58, 61, 0.15);
+}
+
+@media (max-width: 860px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 520px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,27 @@
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fffdf9;
+  color: #c97480;
+  border: 1px solid rgba(74, 58, 61, 0.12);
+  transition: transform 0.15s, background 0.15s, color 0.15s;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible {
+  background: #c97480;
+  color: #fff;
+  transform: translateY(-3px);
+}

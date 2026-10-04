@@ -1,0 +1,43 @@
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.delivery-card { scroll-margin-top: 12vh; }
+.delivery-card:target { border-color: #c97480; box-shadow: 0 0 0 3px rgba(227, 154, 160, 0.35); }
+
+.d-price {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #c97480;
+  font-size: 1.05rem !important;
+  opacity: 1 !important;
+  margin-bottom: 2px !important;
+}
+
+.d-delay { font-weight: 600; margin-bottom: 8px !important; opacity: 1 !important; font-size: 0.85rem !important; }
+
+.notes {
+  max-width: 760px !important;
+  padding-left: 0;
+  list-style: none;
+}
+
+.notes li {
+  background: #fffdf9;
+  border-radius: 14px;
+  padding: 14px 18px 14px 44px;
+  margin-bottom: 10px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.notes li::before {
+  content: "✓";
+  position: absolute;
+  left: 16px;
+  color: #4fae7a;
+  font-weight: 700;
+}

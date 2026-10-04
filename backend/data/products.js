@@ -1,0 +1,27 @@
+// Nos propres données (comme un "dummyjson" mais fait par nous pour nos gâteaux)
+// Chaque produit a un "id" unique, comme dans l'exemple du prof (ex: { id: 122, title: "iPhone 6" })
+
+const products = [
+  { id: 1, title: "Red Velvet Classique", image: "/images/gateaux/red-velvet-classique.jpg", category: "anniversaire", price: 4800, description: "Génoise cacao et betterave rouge, crème fromage, décor simple. Pour 6 à 8 parts. Idéal pour un anniversaire à la maison.", color: "#E39AA0" },
+  { id: 2, title: "Number Cake Fruits Rouges", image: "/images/gateaux/number-cake-fruits-rouges.jpg", category: "anniversaire", price: 5200, description: "Sablé en forme de chiffre, chantilly mascarpone et fruits rouges frais. Un classique très photogénique pour les anniversaires.", color: "#C97480" },
+  { id: 3, title: "Pièce Montée 3 Étages", image: "/images/gateaux/piece-montee-3-etages.jpg", category: "mariage", price: 32000, description: "Trois étages vanille et chocolat, finition à la feuille d'or comestible. Environ 60 parts, parfait pour un mariage.", color: "#D8B97A" },
+  { id: 4, title: "Naked Cake Mariage", image: "/images/gateaux/naked-cake-mariage.jpg", category: "mariage", price: 24000, description: "Génoise apparente façon 'naked cake', décoré de fleurs comestibles fraîches. Environ 40 parts.", color: "#8FB79E" },
+  { id: 5, title: "Gâteau Sculpté Sur-Mesure", image: "/images/gateaux/gateau-sculpte-sur-mesure.jpg", category: "sur-mesure", price: 12000, description: "Forme personnalisée en pâte à sucre selon vos photos ou votre thème. Prix de base, sur devis selon la complexité.", color: "#B98B5E" },
+  { id: 6, title: "Gâteau Logo / Entreprise", image: "/images/gateaux/gateau-logo-entreprise.jpg", category: "sur-mesure", price: 9500, description: "Reproduction de votre logo en impression comestible sur un glaçage lisse. Parfait pour un événement d'entreprise.", color: "#7FA98C" },
+  { id: 7, title: "Part de Fraisier", image: "/images/gateaux/part-de-fraisier.jpg", category: "part", price: 750, description: "Génoise imbibée, crème mousseline à la vanille, fraises fraîches. Vendu à la part, à déguster sur place ou à emporter.", color: "#E7B3B8" },
+  { id: 8, title: "Part d'Opéra", image: "/images/gateaux/part-d-opera.jpg", category: "part", price: 800, description: "Biscuit joconde, ganache au chocolat noir et crème au café. Un classique de la pâtisserie française, vendu à la part.", color: "#8A6142" },
+  { id: 9, title: "Moelleux Chocolat Vegan", image: "/images/gateaux/moelleux-chocolat-vegan.jpg", category: "vegan", price: 5800, description: "Sans œufs ni lait, à base de purée de fruits. Ganache noire intense. 100% vegan sans compromis sur le goût.", color: "#5F8A55" },
+  { id: 10, title: "Carrot Cake Vegan", image: "/images/gateaux/carrot-cake-vegan.jpg", category: "vegan", price: 6200, description: "Carottes, épices douces (cannelle, muscade), glaçage à base de noix de cajou. Moelleux et sans produits animaux.", color: "#7FA98C" },
+  { id: 11, title: "Gâteau Amande Sans Gluten", image: "/images/gateaux/gateau-amande-sans-gluten.jpg", category: "sans-gluten", price: 6500, description: "Base de farine d'amande, confiture d'abricot. Sans gluten, moelleux et parfumé.", color: "#CBA765" },
+  { id: 12, title: "Cheesecake Citron Sans Gluten", image: "/images/gateaux/cheesecake-citron-sans-gluten.jpg", category: "sans-gluten", price: 6800, description: "Base sans gluten, crémeux au citron frais. Léger et acidulé.", color: "#E0C88A" },
+  { id: 13, title: "Box 6 Cupcakes Vanille", image: "/images/gateaux/box-6-cupcakes-vanille.jpg", category: "cupcakes", price: 2200, description: "Six cupcakes vanille, glaçage suisse à la meringue, décor pastel. Vendus en box de 6.", color: "#E7B3B8" },
+  { id: 14, title: "Box 6 Cupcakes Red Velvet", image: "/images/gateaux/box-6-cupcakes-red-velvet.jpg", category: "cupcakes", price: 2400, description: "Six cupcakes red velvet, crème fromage et éclats de biscuit. Vendus en box de 6.", color: "#C97480" },
+  { id: 15, title: "Cheesecake New-York", image: "/images/gateaux/cheesecake-new-york.jpg", category: "cheesecake", price: 5500, description: "Cheesecake cuit au four, texture dense et crémeuse, coulis au choix (fruits rouges ou caramel).", color: "#E0C88A" },
+  { id: 16, title: "Cheesecake Pistache", image: "/images/gateaux/cheesecake-pistache.jpg", category: "cheesecake", price: 6000, description: "Crème pistache, éclats de pistache torréfiée. Un parfum subtil et gourmand.", color: "#8FB79E" },
+  { id: 17, title: "Cake Marbré Chocolat-Vanille", image: "/images/gateaux/cake-marbre-chocolat-vanille.jpg", category: "voyage", price: 1800, description: "Le classique du goûter, marbré chocolat et vanille. Se conserve plusieurs jours, parfait pour voyager.", color: "#B98B5E" },
+  { id: 18, title: "Cake au Citron", image: "/images/gateaux/cake-au-citron.jpg", category: "voyage", price: 1900, description: "Glaçage citron craquant sur un moelleux au citron. Parfait à emporter avec le café.", color: "#D8B97A" },
+  { id: 19, title: "Cake aux Fruits Confits", image: "/images/gateaux/cake-aux-fruits-confits.jpg", category: "voyage", price: 2400, description: "Fruits confits et raisins macérés, longue conservation. Un cake généreux et parfumé.", color: "#CBA765" },
+  { id: 20, title: "Cake Chocolat Intense", image: "/images/gateaux/cake-chocolat-intense.jpg", category: "voyage", price: 2100, description: "Pépites de chocolat noir fondant, format à partager. Moelleux et riche en chocolat.", color: "#8A6142" },
+];
+
+module.exports = products;

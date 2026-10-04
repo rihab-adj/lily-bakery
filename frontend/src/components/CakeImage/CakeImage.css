@@ -1,0 +1,13 @@
+.cake-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cake-image img,
+.cake-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}

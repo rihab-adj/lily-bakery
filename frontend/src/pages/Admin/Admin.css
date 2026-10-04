@@ -1,0 +1,158 @@
+.admin {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 75vh;
+  padding: 6vh 0 8vh;
+}
+
+.admin h1 {
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+  color: #4a3a3d;
+  margin-bottom: 24px;
+}
+
+.orders-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card {
+  width: 100%;
+  background: #fffdf9;
+  border: 1px solid rgba(74, 58, 61, 0.12);
+  border-left: 5px solid #d8b97a;
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.order-card.traitée { border-left-color: #8fb79e; opacity: 0.75; }
+
+.order-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-client { font-weight: 700; }
+
+.order-status {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fbedea;
+  color: #c97480;
+}
+
+.order-status.traitée { background: #e7f1ea; color: #4b7a5e; }
+
+.order-address, .order-note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin: 4px 0;
+}
+
+.order-items {
+  width: 100%;
+  margin: 10px 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+
+.order-foot {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.order-foot strong {
+  font-family: "Fraunces", serif;
+  color: #c97480;
+}
+
+.order-foot button {
+  border: none;
+  background: #4a3a3d;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.status-msg {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.admin-login {
+  max-width: 360px;
+  text-align: center;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.admin-login label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.admin-login input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(74, 58, 61, 0.2);
+  background: #fbedea;
+  font-size: 0.95rem;
+}
+
+.admin-login button {
+  margin-top: 10px;
+  padding: 13px;
+  border: none;
+  border-radius: 999px;
+  background: #e39aa0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.admin-actions button {
+  padding: 8px 16px;
+  border: 1px solid rgba(74, 58, 61, 0.25);
+  background: #fffdf9;
+  color: #4a3a3d;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.admin-actions button:hover { background: #fbedea; }

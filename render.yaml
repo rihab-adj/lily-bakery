@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lily-bakery
+    runtime: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: ADMIN_PASSWORD
+        value: ChangeMoi2026
