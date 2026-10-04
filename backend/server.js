@@ -58,6 +58,9 @@ app.use((err, req, res, next) => {
   });
 });
 
+// connecte la base de données au démarrage (si DATABASE_URL existe) pour voir tout de suite une erreur éventuelle
+require("./db").init().catch((err) => console.error("❌ Connexion à la base de données impossible :", err.message));
+
 const server = app.listen(PORT, () => {
   console.log(`✅ Serveur backend démarré sur http://localhost:${PORT}`);
   console.log("   Routes : /api/products  /api/orders  /api/health");

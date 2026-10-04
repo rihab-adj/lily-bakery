@@ -1,46 +1,13 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
 const products = require("../data/products");
 const { requireAdmin } = require("../auth");
+const db = require("../db");
 const router = express.Router();
 
-// Notre "base de données" : un fichier JSON
-const ORDERS_FILE = path.join(__dirname, "../data/orders.json");
-
-// Lit les commandes. Si le fichier manque ou est cassé, on le recrée au lieu de planter.
-function readOrders() {
-  try {
-    if (!fs.existsSync(ORDERS_FILE)) {
-      fs.writeFileSync(ORDERS_FILE, "[]");
-      return [];
-    }
-    const content = fs.readFileSync(ORDERS_FILE, "utf-8").trim();
-    if (content === "") return [];
-    const data = JSON.parse(content);
-    return Array.isArray(data) ? data : [];
-  } catch (err) {
-    console.error("⚠️  orders.json illisible, sauvegarde puis remise à zéro :", err.message);
-    try {
-      fs.copyFileSync(ORDERS_FILE, ORDERS_FILE + ".backup-" + Date.now());
-    } catch (e) {
-      /* pas grave */
-    }
-    return [];
-  }
-}
-
-// Écrit d'abord dans un fichier temporaire, puis le renomme : jamais de fichier à moitié écrit
-function writeOrders(orders) {
-  const tmp = ORDERS_FILE + ".tmp";
-  fs.writeFileSync(tmp, JSON.stringify(orders, null, 2));
-  fs.renameSync(tmp, ORDERS_FILE);
-}
-
 // GET /api/orders -> le patron récupère toutes les commandes (plus récentes en premier)
-router.get("/", requireAdmin, (req, res) => {
+router.get("/", requireAdmin, async (req, res) => {
   try {
-    res.json(readOrders().slice().reverse());
+    res.json(await db.listOrders());
   } catch (err) {
     console.error("❌ Lecture des commandes :", err);
     res.status(500).json({ message: "Impossible de lire les commandes." });
@@ -48,7 +15,7 @@ router.get("/", requireAdmin, (req, res) => {
 });
 
 // POST /api/orders -> un client envoie une commande
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { customerName, phone, address, note, items } = req.body || {};
 
@@ -84,9 +51,7 @@ router.post("/", (req, res) => {
       createdAt: new Date().toISOString(),
     };
 
-    const orders = readOrders();
-    orders.push(newOrder);
-    writeOrders(orders);
+    await db.addOrder(newOrder);
 
     console.log(`📦 Nouvelle commande de ${newOrder.customerName} — ${total} DA`);
     res.status(201).json(newOrder);
@@ -97,18 +62,15 @@ router.post("/", (req, res) => {
 });
 
 // PATCH /api/orders/:id -> le patron change le statut (nouvelle <-> traitée)
-router.patch("/:id", requireAdmin, (req, res) => {
+router.patch("/:id", requireAdmin, async (req, res) => {
   try {
     const id = Number(req.params.id);
-    const orders = readOrders();
-    const order = orders.find((o) => o.id === id);
+    const order = await db.toggleOrder(id);
 
     if (!order) {
       return res.status(404).json({ message: "Commande introuvable." });
     }
 
-    order.status = order.status === "nouvelle" ? "traitée" : "nouvelle";
-    writeOrders(orders);
     res.json(order);
   } catch (err) {
     console.error("❌ Mise à jour de la commande :", err);
